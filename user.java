@@ -1,17 +1,11 @@
-public class user{
+
+
+ public class user {
     public static void main(String[] args) {
-        guest g = new guest();
-        g.read();
-
-        developer dev = new developer();
-        dev.read();
-        dev.write();
-
-        admin a = new admin();
-        a.read();
-        a.write();
-        a.manage();
+        p1  o =new p1();
+        o. one();
+        o.two();
         
-
     }
-}
+
+ }

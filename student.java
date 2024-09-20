@@ -1,39 +1,15 @@
-
-
-public class student {
-    int id ;
-    String name;
-    double marks;
-
-    public student() {
-
+public class student{
+    String name = "Asiwtha";
+    public void greet(){
+        System.out.println("hi " + name);
     }
-    public student(int id,String name) {
-
+    public static void main(String[] args) {
+        //student s1 =new student();
+        //s1.greet();
+        int i;
+        i = 10;
+        new student(). greet();//this is calles anonymous object
+        student s1 = new student();
+        s1.greet(); //referenced object
     }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public double getMarks() {
-        return marks;
-    }
-
-    public void setMarks(double marks) {
-        this.marks = marks;
-    }
-
 }

@@ -1,11 +1,12 @@
-
-
- public class user {
+public class user {
     public static void main(String[] args) {
-        p1  o =new p1();
-        o. one();
-        o.two();
-        
-    }
+        car c = new car ()
+        {
+            public void drive (){
+                System.out.println("drive is called");
+            }
 
- }
+        };//anynoom classes
+       c.drive();
+    }
+}

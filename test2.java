@@ -1,24 +1,60 @@
+
 public class test2{
-    public static void main(String[] args) {
-        StringBuilder sb = new StringBuilder("aswitha");
-        sb.append("princess");
-        //sb.insert(7,"princess");
-        sb.ensureCapacity(100);
+    public static void main(String[] args) throws InterruptedException {
+        BrickDairy bd = new BrickDairy ();
+        Runnable r1 = () -> {
+           for (int i =0; i<10000; i+=50){
+            //unloading the 50 bricks 
+            bd.incrementBrickCount();
 
-        sb.reverse();
-        //b.deleteCharAt(7);
-        sb.capacity();
-        //System.out.println(sb.capacity());
-        System.out.println(sb);
+           }
+        };
 
-        StringBuilder sb2 = new StringBuilder("hello");
-        StringBuilder sb3 = new StringBuilder("hello");
+        Runnable r2 = () -> {
+           for (int i =0; i<15000; i+=50){
+            bd.incrementBrickCount();
 
-        System.out.println(sb2.equals(sb3));//this code  adderss printing
-        System.out.println( sb2 == sb3);//this code data printing
-        System.out.println(sb2.compareTo(sb3));//this  code comparesion to data 
+           }
+        };
+
+        Runnable r3 = () -> {
+           for (int i =0; i<5000; i+=50){
+            bd.incrementBrickCount();
+
+           }
+        };
+
+     Thread t1 = new Thread(r1);
+     Thread t2 = new Thread(r2);
+     Thread t3 = new Thread(r3);
+
+     t1.start();
+     t2.start();
+     t3.start();
+     
+
+     t1.join();
+     t2.join();
+     t3.join();
+
+     System.out.print(bd.brickCount);
+     System.out.println(bd.brickCount2);
+     
         
-
-
     }
+}
+
+class BrickDairy {
+    int brickCount = 0;
+    int brickCount2 = 0;
+
+    public  void incrementBrickCount() {
+        synchronized(this) {
+            brickCount +=50;
+        }
+      brickCount2 += 50;
+
+      
+    }
+
 }
